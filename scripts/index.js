@@ -29,6 +29,7 @@
       blobGraph.clear();
       blobs.forEach(function (blob) {
         blob.draw();
+        blob.computeDisplay();
       });
 
       //p.image(blobGraph, 0, 0);
@@ -38,6 +39,12 @@
       p.image(copy, 0, 0);
 
       //b1.move(p.mouseX, p.mouseY);
+    }
+
+    p.mouseClicked = function() {
+      blobs.forEach(function(blob){
+        blob.toggle();
+      });
     }
 
   });

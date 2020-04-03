@@ -3,7 +3,9 @@ class Blob {
   constructor (p, x, y, size){
     this.p = p;
     this.pos = p.createVector(x, y);
-    this.size = size;
+    this.size = 0;
+    this.finalSize = size;
+    this.display = false;
 
     this.col = p.color(255, 255, 0);
 
@@ -12,8 +14,20 @@ class Blob {
     this.genOffset = p.random(4125123125123);
   }
 
+  computeDisplay(){
+    var diff = this.finalSize - this.size;
+    var vel = this.p.map(diff, this.finalSize, 0, 50, 15);
+    if(this.display && this.size < this.finalSize){
+      this.size += vel;
+    }
+    if(!this.display && this.size > 0){
+      this.size -= vel;
+    }
+  }
+
   draw(){
     var { p, pos, size } = this;
+    if(size <= 0) return;
 
     var mov = 40;
     this.genOffset += 0.01;
@@ -87,6 +101,10 @@ class Blob {
 
   move(x, y){
     this.pos.set(x, y);
+  }
+
+  toggle(){
+    this.display = !this.display;
   }
 
 }
