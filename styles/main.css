@@ -9,3 +9,12 @@ body, html {
 body{
   background-color: lightcoral;
 }
+
+.title{
+  position: fixed;
+  top: 300px;
+  left: 300px;
+  font-family: sans-serif;
+  font-size: 90px;
+  color: lightgreen;
+}

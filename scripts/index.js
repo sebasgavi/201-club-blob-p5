@@ -47,8 +47,10 @@
       });
     }
 
-  });
+    var title = document.querySelector('.title');
+    title.addEventListener('mouseenter', p.mouseClicked);
+    title.addEventListener('mouseleave', p.mouseClicked);
 
-  
+  });
 
 })();
