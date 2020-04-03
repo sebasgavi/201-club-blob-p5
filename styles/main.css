@@ -4,5 +4,8 @@ body, html {
 
 #p5parent{
   position: fixed;
-  
+}
+
+body{
+  background-color: lightcoral;
 }
